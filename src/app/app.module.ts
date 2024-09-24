@@ -3,13 +3,13 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MonsterComponent } from './component/monstruo/monstruo.component';
+import { MonstruoComponent } from './component/monstruo/monstruo.component';
 import { JugadorComponent } from './component/jugador/jugador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MonsterComponent,
+    MonstruoComponent,
     JugadorComponent
   ],
   imports: [

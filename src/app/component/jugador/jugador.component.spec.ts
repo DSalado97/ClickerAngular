@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainClickerComponent } from './main-clicker.component';
+import { JugadorComponent } from './jugador.component';
 
-describe('MainClickerComponent', () => {
-  let component: MainClickerComponent;
-  let fixture: ComponentFixture<MainClickerComponent>;
+describe('JugadorComponent', () => {
+  let component: JugadorComponent;
+  let fixture: ComponentFixture<JugadorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MainClickerComponent]
+      declarations: [JugadorComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MainClickerComponent);
+    fixture = TestBed.createComponent(JugadorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

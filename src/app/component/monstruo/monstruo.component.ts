@@ -1,16 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Monstruo } from '../../models/monstruo';
+import { MonstruoService } from '../../services/monstruo.service';
+import { JuegoService } from '../../services/juego.service';
 
 @Component({
-  selector: 'monstruo',
+  selector: 'cmp-monstruo',
   templateUrl: './monstruo.component.html',
   styleUrl: './monstruo.component.scss'
 })
-export class MonstruoComponent {
+export class MonstruoComponent implements OnInit{
 
-  coin: number = 0;
+  monstruo: Monstruo;  // Puede ser un modelo de "Monster"
 
-  clickMouse() {
-    this.coin++
+  constructor(private monstruoService: MonstruoService, private juegoService: JuegoService) {
+    this.monstruo = this.monstruoService.getMonstruoActual();
+
+  }
+
+  ngOnInit() {
+    
+  }
+
+  onClickMonster() {
+    this.monstruoService.hacerDano();
+    if (this.monstruo.vida <= 0) {
+      this.juegoService.anadirMonedas(this.monstruo.recompensa);
+      this.monstruoService.spawnNuevoMonstruo();
+    }
   }
 
 }

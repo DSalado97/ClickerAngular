@@ -1,5 +1,7 @@
 export interface Monstruo {
     nombre: string;
-    vida: number;
+    vidaActual: number;
+    vidaMaxima: number;
     recompensa: number;
+    experiencia: number;
 }

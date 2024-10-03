@@ -5,6 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MonstruoComponent } from './component/monstruo/monstruo.component';
 import { JugadorComponent } from './component/jugador/jugador.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { MonstruoService } from './services/monstruo.service';
+import { JuegoService } from './services/juego.service';
+import { JugadorService } from './services/jugador.service';
+
 
 @NgModule({
   declarations: [
@@ -14,9 +19,13 @@ import { JugadorComponent } from './component/jugador/jugador.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
+    MonstruoService,
+    JuegoService,
+    JugadorService,
+    provideHttpClient(withInterceptorsFromDi()),
     provideClientHydration()
   ],
   bootstrap: [AppComponent]

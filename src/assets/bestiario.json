@@ -1,0 +1,21 @@
+{
+    "LVL1" : [
+        { "nombre": "Goblin",
+        "vidaMaxima": 10,
+        "recompensa": 10,
+        "experiencia": 1
+        },
+
+        { "nombre": "Slime",
+        "vidaMaxima": 15,
+        "recompensa": 15,
+        "experiencia": 1
+        },
+        
+        { "nombre": "Bee",
+        "vidaMaxima": 5,
+        "recompensa": 5,
+        "experiencia": 1
+        }
+    ]
+}

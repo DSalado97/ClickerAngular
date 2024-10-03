@@ -8,25 +8,45 @@ import { JuegoService } from '../../services/juego.service';
   templateUrl: './monstruo.component.html',
   styleUrl: './monstruo.component.scss'
 })
-export class MonstruoComponent implements OnInit{
+export class MonstruoComponent{
 
+  bestiario: any[] = []
   monstruo: Monstruo;  // Puede ser un modelo de "Monster"
 
   constructor(private monstruoService: MonstruoService, private juegoService: JuegoService) {
-    this.monstruo = this.monstruoService.getMonstruoActual();
+    this.monstruoService.cargarMonstruos().subscribe(response => {
+      console.log('Monstruos cargados:', response);
+      this.bestiario = response;
+    }, error => {
+      console.error('Error cargando monstruos:', error);
+    });
 
-  }
-
-  ngOnInit() {
-    
+    this.monstruo = {
+      nombre: "Goblin",
+      vidaActual: 10,
+      vidaMaxima: 10,
+      recompensa: 10,
+      experiencia: 1
+    }
   }
 
   onClickMonster() {
-    this.monstruoService.hacerDano();
-    if (this.monstruo.vida <= 0) {
+    this.hacerDano();
+    if (this.monstruo.vidaActual <= 0) {
+      alert("Murió")
       this.juegoService.anadirMonedas(this.monstruo.recompensa);
-      this.monstruoService.spawnNuevoMonstruo();
+      alert("Recompensado")
+      this.spawnNuevoMonstruo();
+      alert("Spawneo")
     }
+  }
+
+  hacerDano() {
+
+  }
+
+  spawnNuevoMonstruo() {
+    console.log(this.bestiario)
   }
 
 }

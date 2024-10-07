@@ -10,7 +10,7 @@ import { JuegoService } from '../../services/juego.service';
 })
 export class MonstruoComponent{
 
-  bestiario: any[] = []
+  bestiario: Monstruo[] = [];
   monstruo: Monstruo;  // Puede ser un modelo de "Monster"
 
   constructor(private monstruoService: MonstruoService, private juegoService: JuegoService) {
@@ -28,6 +28,8 @@ export class MonstruoComponent{
       recompensa: 10,
       experiencia: 1
     }
+
+    this.spawnNuevoMonstruo()
   }
 
   onClickMonster() {
@@ -47,6 +49,7 @@ export class MonstruoComponent{
 
   spawnNuevoMonstruo() {
     console.log(this.bestiario)
+    
   }
 
 }
